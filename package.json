@@ -5,11 +5,12 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "express-async-handler": "^1.1.4",    
+    "express-async-handler": "^1.1.4",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.11",
     "morgan": "^1.10.0",
     "multer": "^1.4.2",
+    "node.js": "0.0.1-security",
     "nodemailer": "^6.4.17"
   },
   "name": "proshop",
@@ -24,7 +25,7 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "data:import": "node backend/seeder",
     "data:destroy": "node backend/seeder -d",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION = false npm install --prefix frontend && npm run build --prefix frontend"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "author": "",
   "license": "MIT",
