@@ -48,7 +48,6 @@ const NavBar = () => {
 
               <LinkContainer to='/cart'>
                 <Nav.Link>
-                  Cart
                   <i className='fas fa-shopping-cart' />
                 </Nav.Link>
               </LinkContainer>
@@ -64,7 +63,7 @@ const NavBar = () => {
               ) : (
                 <LinkContainer to='/login'>
                   <Nav.Link>
-                    <i className='fas fa-user'></i>sign in
+                    <i className='fas fa-user'></i>
                   </Nav.Link>
                 </LinkContainer>
               )}

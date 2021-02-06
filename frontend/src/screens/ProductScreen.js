@@ -146,9 +146,9 @@ const ProductScreen = ({ history, match }) => {
                             >
                               <option>Select</option>
                               <option>XS</option>
-                              <option>S</option>
-                              <option>M</option>
-                              <option>L</option>
+                              <option>SM</option>
+                              <option>MD</option>
+                              <option>LG</option>
                               <option>XL</option>
                             </Form.Control>
                           </Col>

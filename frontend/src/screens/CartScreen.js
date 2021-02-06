@@ -11,7 +11,7 @@ const CartScreen = ({ match, location, history }) => {
 
   const qty = location.search ? Number(location.search.split("=")[2]) : 1;
   const size = location.search
-    ? String(location.search.split("=")[1]).charAt(0)
+    ? String(location.search.split("=")[1]).substring(0, 2)
     : "";
 
   console.log(size);
