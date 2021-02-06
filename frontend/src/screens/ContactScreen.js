@@ -1,36 +1,43 @@
-import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import { AwesomeButtonSocial } from 'react-awesome-button';
-import '../buttonStyle.css';
-import ContactForm from '../components/ContactForm';
-import Meta from '../components/Meta';
+import React from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import { AwesomeButtonSocial } from "react-awesome-button";
+import "../buttonStyle.css";
+import ContactForm from "../components/ContactForm";
+import Meta from "../components/Meta";
 
 const ContactScreen = () => {
+  //update these at urlgeni.us for new deep link
+  const instaLink = "https://urlgeni.us/instagram/JdKY";
+  const fbLink = "https://urlgeni.us/facebook/K1vB";
+
   return (
     <Container>
       <Meta title='Mazeraa | Contact' />
       <Container
         style={{
-          display: 'flex',
-          justifyContent: 'space-around',
-          aligntItems: 'center',
-        }}>
+          display: "flex",
+          justifyContent: "space-around",
+          aligntItems: "center",
+        }}
+      >
         <Row>
           <Col
             style={{
-              width: '100vw',
-              display: 'flex',
-              justifyContent: 'center',
-            }}>
+              width: "100vw",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
             <AwesomeButtonSocial
               type='facebook'
               size='large'
               className='mt-5'
               style={{
-                textDecoration: 'none',
+                textDecoration: "none",
               }}
-              href='https://www.facebook.com/Mazeraa-105778457824383/'
-              target='_blank'>
+              href={fbLink}
+              target='_blank'
+            >
               Facebook
             </AwesomeButtonSocial>
           </Col>
@@ -38,26 +45,29 @@ const ContactScreen = () => {
       </Container>
       <Container
         style={{
-          display: 'flex',
-          justifyContent: 'space-evenly',
-          aligntItems: 'center',
-        }}>
+          display: "flex",
+          justifyContent: "space-evenly",
+          aligntItems: "center",
+        }}
+      >
         <Row>
           <Col
             style={{
-              width: '100vw',
-              display: 'flex',
-              justifyContent: 'center',
-            }}>
+              width: "100vw",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
             <AwesomeButtonSocial
               type='instagram'
               size='large'
               className='mt-5'
               style={{
-                textDecoration: 'none',
+                textDecoration: "none",
               }}
-              href='https://www.instagram.com/mazeraa_official/?hl=en'
-              target='_blank'>
+              href={instaLink}
+              target='_blank'
+            >
               Instagram
             </AwesomeButtonSocial>
           </Col>
@@ -65,10 +75,11 @@ const ContactScreen = () => {
       </Container>
       <Container
         style={{
-          width: '100vw',
-          display: 'flex',
-          justifyContent: 'center',
-        }}>
+          width: "100vw",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
         <Row>
           <Col>
             <ContactForm />
