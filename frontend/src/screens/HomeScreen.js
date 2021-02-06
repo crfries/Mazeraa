@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Row, Col, Container } from 'react-bootstrap';
-import Product from '../components/Product';
-import { listProducts } from '../actions/productActions';
-import Loader from '../components/Loader';
-import Message from '../components/Message';
-import Paginate from '../components/Paginate';
-import GalleryCarousel from '../components/GalleryCarousel';
-import Meta from '../components/Meta';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Row, Col, Container } from "react-bootstrap";
+import Product from "../components/Product";
+import { listProducts } from "../actions/productActions";
+import Loader from "../components/Loader";
+import Message from "../components/Message";
+import Paginate from "../components/Paginate";
+import GalleryCarousel from "../components/GalleryCarousel";
+import Meta from "../components/Meta";
 
 const HomeScreen = ({ match }) => {
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ const HomeScreen = ({ match }) => {
       {loading ? (
         <Loader />
       ) : error ? (
-        <Message variant={'danger'}>{error}</Message>
+        <Message variant={"danger"}>{error}</Message>
       ) : (
         <>
           <Paginate pages={pages} page={page} />

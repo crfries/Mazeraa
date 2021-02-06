@@ -1,9 +1,9 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Navbar, Nav, Container, NavDropdown, Image } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
-import { logout } from '../actions/userActions';
-import logo from '../images/blacklogo.png';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Navbar, Nav, Container, NavDropdown, Image } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
+import { logout } from "../actions/userActions";
+import logo from "../images/blacklogo.png";
 
 const NavBar = () => {
   const userLogin = useSelector((state) => state.userLogin);
@@ -19,23 +19,19 @@ const NavBar = () => {
     <header>
       <Container
         style={{
-          display: 'flex',
-          justifyContent: 'center',
-        }}>
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
         <Navbar
           bg='light'
           variant='light'
           expand='lg'
           collapseOnSelect
-          style={{ border: 'none' }}>
+          style={{ border: "none" }}
+        >
           <Container>
-            <Image
-              src={logo}
-              style={{
-                width: '250px',
-                height: 'auto',
-                paddingBottom: '2rem',
-              }}></Image>
+            <Image className='navLogo' src={logo}></Image>
           </Container>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>

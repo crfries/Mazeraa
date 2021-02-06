@@ -1,7 +1,7 @@
 * {
   padding: 0;
   margin: 0;
-  font-family: 'Hind', sans-serif;
+  font-family: "Hind", sans-serif;
 }
 
 main {
@@ -16,13 +16,13 @@ a {
 h1 {
   font-size: 1.8rem;
   padding: 1rem 0;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
 }
 
 h2 {
   font-size: 1.4rem;
   padding: 0.5rem 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 h3 {
@@ -32,6 +32,16 @@ h3 {
 .rating span {
   margin: 0.1rem;
 }
+
+.navLogo {
+  max-width: 500px;
+  @media all and (max-width: 600px) {
+    width: 300px;
+    height: auto;
+    padding-bottom: 2rem;
+  }
+}
+
 /* 
 H1's : font-family: 'Cinzel', serif;
 H2's : font-family: 'Montserrat', sans-serif;

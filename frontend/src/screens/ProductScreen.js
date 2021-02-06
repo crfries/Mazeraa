@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Row,
   Col,
@@ -9,20 +9,21 @@ import {
   Card,
   Button,
   Form,
-} from 'react-bootstrap';
-import Rating from '../components/Rating';
+} from "react-bootstrap";
+import Rating from "../components/Rating";
 import {
   listProductDetails,
   createProductReview,
-} from '../actions/productActions';
-import { PRODUCT_CREATE_REVIEW_RESET } from '../constants/productConstants';
-import Loader from '../components/Loader';
-import Message from '../components/Message';
+} from "../actions/productActions";
+import { PRODUCT_CREATE_REVIEW_RESET } from "../constants/productConstants";
+import Loader from "../components/Loader";
+import Message from "../components/Message";
 
 const ProductScreen = ({ history, match }) => {
   const [qty, setQty] = useState(1);
   const [rating, setRating] = useState(0);
-  const [comment, setComment] = useState('');
+  const [comment, setComment] = useState("");
+  const [size, setSize] = useState("");
 
   const dispatch = useDispatch();
 
@@ -37,9 +38,9 @@ const ProductScreen = ({ history, match }) => {
 
   useEffect(() => {
     if (successProductReview) {
-      alert('Review submitted!');
+      alert("Review submitted!");
       setRating(0);
-      setComment('');
+      setComment("");
       dispatch({ type: PRODUCT_CREATE_REVIEW_RESET });
     }
     dispatch(listProductDetails(match.params.id));
@@ -49,7 +50,7 @@ const ProductScreen = ({ history, match }) => {
   const { userInfo } = userLogin;
 
   const addToCartHandler = () => {
-    history.push(`/cart/${match.params.id}?qty=${qty}`);
+    history.push(`/cart/${match.params.id}?size=${size}&qty=${qty}`);
   };
 
   const submitHandler = (e) => {
@@ -75,74 +76,99 @@ const ProductScreen = ({ history, match }) => {
         <>
           {/* <Meta title={product.name} /> */}
           <Row>
-            <Col md={4}>
+            <Col md={8} sm={12} className='pb-3'>
               <Image src={product.image} alt={product.name} fluid />
             </Col>
-            <Col md={2}>
+            <Col md={4}>
               <ListGroup variant='flush'>
                 <ListGroup.Item>
                   <h3>{product.name}</h3>
                 </ListGroup.Item>
                 <ListGroup.Item>Price: ${product.price}</ListGroup.Item>
-                <ListGroup.Item>
-                  Description: {product.description}
-                </ListGroup.Item>
+                <ListGroup.Item>{product.description}</ListGroup.Item>
               </ListGroup>
-            </Col>
-            <Col md={5} style={{ paddingLeft: '5rem' }}>
-              <Card>
-                <ListGroup variant='flush'>
-                  <ListGroup.Item>
-                    <Row>
-                      <Col>Price:</Col>
-                      <Col>
-                        <strong>${product.price}</strong>
-                      </Col>
-                    </Row>
-                  </ListGroup.Item>
 
-                  <ListGroup.Item>
-                    <Row>
-                      <Col>Status:</Col>
-                      <Col>
-                        {product.countInStock > 0 ? 'In Stock' : 'Out Of Stock'}
-                      </Col>
-                    </Row>
-                  </ListGroup.Item>
-
-                  {product.countInStock > 0 && (
+              <Col md={12} style={{}}>
+                <Card>
+                  <ListGroup variant='flush'>
                     <ListGroup.Item>
                       <Row>
-                        <Col>Qty</Col>
+                        <Col>Price:</Col>
                         <Col>
-                          <Form.Control
-                            as='select'
-                            value={qty}
-                            onChange={(e) => setQty(e.target.value)}>
-                            {[...Array(product.countInStock).keys()].map(
-                              (x) => (
-                                <option key={x + 1} value={x + 1}>
-                                  {x + 1}
-                                </option>
-                              )
-                            )}
-                          </Form.Control>
+                          <strong>${product.price}</strong>
                         </Col>
                       </Row>
                     </ListGroup.Item>
-                  )}
 
-                  <ListGroup.Item>
-                    <Button
-                      onClick={addToCartHandler}
-                      className='btn-block'
-                      type='button'
-                      disabled={product.countInStock === 0}>
-                      Add To Cart
-                    </Button>
-                  </ListGroup.Item>
-                </ListGroup>
-              </Card>
+                    <ListGroup.Item>
+                      <Row>
+                        <Col>Status:</Col>
+                        <Col>
+                          {product.countInStock > 0
+                            ? "In Stock"
+                            : "Out Of Stock"}
+                        </Col>
+                      </Row>
+                    </ListGroup.Item>
+
+                    {product.countInStock > 0 && (
+                      <ListGroup.Item>
+                        <Row>
+                          <Col>Qty</Col>
+                          <Col>
+                            <Form.Control
+                              as='select'
+                              value={qty}
+                              onChange={(e) => setQty(e.target.value)}
+                            >
+                              {[...Array(product.countInStock).keys()].map(
+                                (x) => (
+                                  <option key={x + 1} value={x + 1}>
+                                    {x + 1}
+                                  </option>
+                                )
+                              )}
+                            </Form.Control>
+                          </Col>
+                        </Row>
+                      </ListGroup.Item>
+                    )}
+
+                    {product.countInStock > 0 && (
+                      <ListGroup.Item>
+                        <Row>
+                          <Col>Size</Col>
+                          <Col>
+                            <Form.Control
+                              as='select'
+                              value={size}
+                              onChange={(e) => setSize(e.target.value)}
+                            >
+                              <option>Select</option>
+                              <option>XS</option>
+                              <option>S</option>
+                              <option>M</option>
+                              <option>L</option>
+                              <option>XL</option>
+                            </Form.Control>
+                          </Col>
+                        </Row>
+                      </ListGroup.Item>
+                    )}
+
+                    <ListGroup.Item>
+                      <Button
+                        onClick={addToCartHandler}
+                        className='btn-block'
+                        type='button'
+                        disabled={product.countInStock === 0}
+                      >
+                        Add To Cart
+                      </Button>
+                    </ListGroup.Item>
+                  </ListGroup>
+                </Card>
+              </Col>
             </Col>
           </Row>
           <Row>
@@ -176,7 +202,8 @@ const ProductScreen = ({ history, match }) => {
                         <Form.Control
                           as='select'
                           value={rating}
-                          onChange={(e) => setRating(e.target.value)}>
+                          onChange={(e) => setRating(e.target.value)}
+                        >
                           <option value=''>Select...</option>
                           <option value='1'>1 - Poor</option>
                           <option value='2'>2 - Fair</option>
@@ -191,20 +218,20 @@ const ProductScreen = ({ history, match }) => {
                           as='textarea'
                           row='3'
                           value={comment}
-                          onChange={(e) =>
-                            setComment(e.target.value)
-                          }></Form.Control>
+                          onChange={(e) => setComment(e.target.value)}
+                        ></Form.Control>
                       </Form.Group>
                       <Button
                         // disabled={loadingProductReview}
                         type='submit'
-                        variant='primary'>
+                        variant='primary'
+                      >
                         Submit
                       </Button>
                     </Form>
                   ) : (
                     <Message>
-                      Please <Link to='/login'>sign in</Link> to write a review{' '}
+                      Please <Link to='/login'>sign in</Link> to write a review{" "}
                     </Message>
                   )}
                 </ListGroup.Item>

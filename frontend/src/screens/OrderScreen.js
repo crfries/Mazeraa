@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { PayPalButton } from 'react-paypal-button-v2';
-import { Link } from 'react-router-dom';
-import { Row, Col, ListGroup, Image, Card, Button } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import Message from '../components/Message';
-import Loader from '../components/Loader';
-import Meta from '../components/Meta';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { PayPalButton } from "react-paypal-button-v2";
+import { Link } from "react-router-dom";
+import { Row, Col, ListGroup, Image, Card, Button } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import Message from "../components/Message";
+import Loader from "../components/Loader";
+import Meta from "../components/Meta";
 import {
   getOrderDetails,
   payOrder,
   deliverOrder,
-} from '../actions/orderActions';
+} from "../actions/orderActions";
 import {
   ORDER_PAY_RESET,
   ORDER_DELIVER_RESET,
-} from '../constants/orderConstants';
+} from "../constants/orderConstants";
 
 const OrderScreen = ({ match, history }) => {
   const dispatch = useDispatch();
@@ -44,13 +44,13 @@ const OrderScreen = ({ match, history }) => {
 
   useEffect(() => {
     if (!userInfo) {
-      history.push('/login');
+      history.push("/login");
     }
 
     const addPayPalScript = async () => {
-      const { data: clientId } = await axios.get('/api/config/paypal');
-      const script = document.createElement('script');
-      script.type = 'text/javascript';
+      const { data: clientId } = await axios.get("/api/config/paypal");
+      const script = document.createElement("script");
+      script.type = "text/javascript";
       script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}`;
       script.async = true;
       script.onload = () => {
@@ -103,8 +103,8 @@ const OrderScreen = ({ match, history }) => {
               </p>
               <p>
                 <strong>Address:</strong>
-                {order.shippingAddress.address}, {order.shippingAddress.city}{' '}
-                {order.shippingAddress.postalCode},{' '}
+                {order.shippingAddress.address}, {order.shippingAddress.city}{" "}
+                {order.shippingAddress.postalCode},{" "}
                 {order.shippingAddress.country}
               </p>
               {order.isDelivered ? (
@@ -142,7 +142,8 @@ const OrderScreen = ({ match, history }) => {
                           src={item.image}
                           alt={item.name}
                           rounded
-                          fluid></Image>
+                          fluid
+                        ></Image>
                       </Col>
                       <Col>
                         <Link to={`/product/${item.product}`}>{item.name}</Link>
@@ -150,6 +151,7 @@ const OrderScreen = ({ match, history }) => {
                       <Col md={4}>
                         {item.qty} x ${item.price} = ${item.qty * item.price}
                       </Col>
+                      <Col>Size: {item.size}</Col>
                     </ListGroup.Item>
                   ))}
                 </ListGroup>
@@ -209,7 +211,8 @@ const OrderScreen = ({ match, history }) => {
                     <Button
                       type='button'
                       className='btn btn-block'
-                      onClick={deliverHandler}>
+                      onClick={deliverHandler}
+                    >
                       Mark as delivered
                     </Button>
                   </ListGroup.Item>
