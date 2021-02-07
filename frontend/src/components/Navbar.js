@@ -29,9 +29,9 @@ const NavBar = () => {
           collapseOnSelect
           className='navbar'
         >
-          <Container className='navLogoContainer'>
+          <LinkContainer to='/' className='navLogoContainer'>
             <Image className='navLogo' src={logo}></Image>
-          </Container>
+          </LinkContainer>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='navLinks'>
