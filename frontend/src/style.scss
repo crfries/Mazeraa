@@ -45,7 +45,8 @@ h3 {
 }
 
 .navLogo {
-  max-width: 500px;
+  max-width: 400px;
+
   @media all and (max-width: 600px) {
     width: 100%;
     max-width: 80vw;
@@ -59,12 +60,18 @@ h3 {
   margin: 0 0 3rem 0;
   align-items: center;
   cursor: pointer;
+  padding: 2rem;
 }
 
 .navbar {
+  width: 100%;
+
   border: none;
   a {
     font-size: 1.1em;
+  }
+  @media all and (max-width: 1000px) {
+    display: inline-flex;
   }
 }
 
@@ -77,6 +84,7 @@ h3 {
   box-shadow: 0 8px 6px -6px #a8a6a6;
   border: 1px solid rgb(172, 171, 171);
   min-height: 400px;
+  max-width: 100%;
 
   h5 {
     font-size: 1em;

@@ -45,7 +45,7 @@ h3 {
 }
 
 .navLogo {
-  max-width: 500px;
+  max-width: 400px;
 }
 
 @media all and (max-width: 600px) {
@@ -64,14 +64,24 @@ h3 {
       -ms-flex-align: center;
           align-items: center;
   cursor: pointer;
+  padding: 2rem;
 }
 
 .navbar {
+  width: 100%;
   border: none;
 }
 
 .navbar a {
   font-size: 1.1em;
+}
+
+@media all and (max-width: 1000px) {
+  .navbar {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+  }
 }
 
 .navLinks {
@@ -84,6 +94,7 @@ h3 {
           box-shadow: 0 8px 6px -6px #a8a6a6;
   border: 1px solid #acabab;
   min-height: 400px;
+  max-width: 100%;
 }
 
 .productCard h5 {

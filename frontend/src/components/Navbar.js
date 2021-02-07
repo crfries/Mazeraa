@@ -28,6 +28,7 @@ const NavBar = () => {
           expand='lg'
           collapseOnSelect
           className='navbar'
+          
         >
           <LinkContainer to='/' className='navLogoContainer'>
             <Image className='navLogo' src={logo}></Image>
