@@ -22,6 +22,9 @@ const HomeScreen = ({ match }) => {
 
   return (
     <>
+      <h6>
+        <em>spend $150 or more and receive free shipping</em>
+      </h6>
       <Meta title='Mazeraa | Shop' />
       {loading ? (
         <Loader />
