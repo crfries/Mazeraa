@@ -20,7 +20,6 @@ const NavBar = () => {
       <Container
         style={{
           display: "flex",
-          justifyContent: "center",
         }}
       >
         <Navbar
@@ -28,22 +27,23 @@ const NavBar = () => {
           variant='light'
           expand='lg'
           collapseOnSelect
-          style={{ border: "none" }}
+          className='navbar'
         >
-          <Container>
+          <Container className='navLogoContainer'>
             <Image className='navLogo' src={logo}></Image>
           </Container>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
-            <Nav>
+            <Nav className='navLinks'>
               <LinkContainer to='/' exact>
-                <Nav.Link>shop</Nav.Link>
+                <Nav.Link>. shop</Nav.Link>
               </LinkContainer>
+
               <LinkContainer to='/about'>
-                <Nav.Link>about</Nav.Link>
+                <Nav.Link>. about</Nav.Link>
               </LinkContainer>
               <LinkContainer to='/contact'>
-                <Nav.Link>contact</Nav.Link>
+                <Nav.Link>. contact</Nav.Link>
               </LinkContainer>
 
               <LinkContainer to='/cart'>

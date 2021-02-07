@@ -33,15 +33,54 @@ h3 {
   margin: 0.1rem;
 }
 
+.footerText {
+  color: #fff;
+  font-size: 1.1em;
+}
+
+.footerContainer {
+  background: rgb(0, 0, 0);
+  margin-top: 2rem;
+  width: "100%";
+}
+
 .navLogo {
   max-width: 500px;
   @media all and (max-width: 600px) {
-    width: 300px;
+    width: 100%;
+    max-width: 80vw;
     height: auto;
-    padding-bottom: 2rem;
+    margin: 0.5rem;
   }
 }
 
+.navLogoContainer {
+  background-color: #000;
+  margin: 0 0 3rem 0;
+  align-items: center;
+}
+
+.navbar {
+  border: none;
+  a {
+    font-size: 1.1em;
+  }
+}
+
+.navLinks {
+  padding-left: 1rem;
+  width: 600px;
+}
+
+.productCard {
+  box-shadow: 0 8px 6px -6px #a8a6a6;
+  border: 1px solid rgb(172, 171, 171);
+  min-height: 400px;
+
+  h5 {
+    font-size: 1em;
+  }
+}
 /* 
 H1's : font-family: 'Cinzel', serif;
 H2's : font-family: 'Montserrat', sans-serif;

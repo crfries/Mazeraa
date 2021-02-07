@@ -4,13 +4,7 @@ import { Card } from "react-bootstrap";
 
 const Product = ({ product }) => {
   return (
-    <Card
-      className='my-2 rounded pb-2 pt-2 overflow-hidden align-items-center'
-      style={{
-        boxShadow: "0 8px 6px -6px #a8a6a6",
-        border: "none",
-      }}
-    >
+    <Card className='my-2 pb-2 pt-2 overflow-hidden align-items-center productCard'>
       <Link to={`/product/${product._id}`}>
         <Card.Img
           src={product.image}
@@ -22,13 +16,13 @@ const Product = ({ product }) => {
       <Card.Body className='pl-5'>
         <Link to={`/product/${product._id}`}>
           <Card.Title as='div'>
-            <strong>{product.name}</strong>
+            <h5>
+              <strong>{product.name}</strong>
+            </h5>
           </Card.Title>
         </Link>
 
-        <Card.Text as='h4' className='pt-2'>
-          ${product.price}
-        </Card.Text>
+        <Card.Text as='h6'>${product.price}</Card.Text>
       </Card.Body>
     </Card>
   );

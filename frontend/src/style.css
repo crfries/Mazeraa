@@ -33,16 +33,60 @@ h3 {
   margin: 0.1rem;
 }
 
+.footerText {
+  color: #fff;
+  font-size: 1.1em;
+}
+
+.footerContainer {
+  background: black;
+  margin-top: 2rem;
+  width: "100%";
+}
+
 .navLogo {
   max-width: 500px;
 }
 
 @media all and (max-width: 600px) {
   .navLogo {
-    width: 300px;
+    width: 100%;
+    max-width: 80vw;
     height: auto;
-    padding-bottom: 2rem;
+    margin: 0.5rem;
   }
+}
+
+.navLogoContainer {
+  background-color: #000;
+  margin: 0 0 3rem 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navbar {
+  border: none;
+}
+
+.navbar a {
+  font-size: 1.1em;
+}
+
+.navLinks {
+  padding-left: 1rem;
+  width: 600px;
+}
+
+.productCard {
+  -webkit-box-shadow: 0 8px 6px -6px #a8a6a6;
+          box-shadow: 0 8px 6px -6px #a8a6a6;
+  border: 1px solid #acabab;
+  min-height: 400px;
+}
+
+.productCard h5 {
+  font-size: 1em;
 }
 
 /* 

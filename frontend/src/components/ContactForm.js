@@ -1,29 +1,29 @@
-import React, { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
-import FormContainer from '../components/FormContainer';
-import emailjs from 'emailjs-com';
+import React, { useState } from "react";
+import { Form, Button } from "react-bootstrap";
+import FormContainer from "../components/FormContainer";
+import emailjs from "emailjs-com";
 
 const ContactForm = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
   const submitHandler = (e) => {
     e.preventDefault();
 
     emailjs
       .sendForm(
-        'service_mazeraaclothing',
-        'template_fhsxyc8',
+        "service_mazeraaclothing",
+        "template_fhsxyc8",
         e.target,
-        'user_M935z1ih4tWD9DAfnCT3r'
+        "user_M935z1ih4tWD9DAfnCT3r"
       )
       .then(
         (result) => {
           console.log(result.text);
-          setName('');
-          setEmail('');
-          setMessage('');
+          setName("");
+          setEmail("");
+          setMessage("");
         },
         (error) => {
           console.log(error.text);
@@ -36,7 +36,8 @@ const ContactForm = () => {
       <Form
         onSubmit={submitHandler}
         className='pt-5 '
-        style={{ width: '300px', marginRight: '50px' }}>
+        style={{ width: "300px", marginRight: "50px" }}
+      >
         <Form.Group controlId='name'>
           <Form.Label>Name</Form.Label>
           <Form.Control
@@ -44,7 +45,8 @@ const ContactForm = () => {
             type='name'
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder='Enter name'></Form.Control>
+            placeholder='Enter name'
+          ></Form.Control>
         </Form.Group>
 
         <Form.Group controlId='email'>
@@ -54,7 +56,8 @@ const ContactForm = () => {
             type='email'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder='Enter email'></Form.Control>
+            placeholder='Enter email'
+          ></Form.Control>
         </Form.Group>
 
         <Form.Group controlId='message'>
@@ -64,13 +67,16 @@ const ContactForm = () => {
             row='3'
             name='message'
             onChange={(e) => setMessage(e.target.value)}
-            value={message}></Form.Control>
+            style={{ height: "200px" }}
+            value={message}
+          ></Form.Control>
         </Form.Group>
 
         <Button
           type='submit'
           variant='primary'
-          style={{ width: '300px', marginRight: '50px' }}>
+          style={{ width: "300px", marginRight: "50px" }}
+        >
           Send Message
         </Button>
       </Form>
