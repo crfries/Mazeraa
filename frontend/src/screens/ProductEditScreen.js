@@ -141,22 +141,6 @@ const ProductEditScreen = ({ match, history }) => {
               {uploading && <Loader />}
             </Form.Group>
 
-            {/* <Form.Group controlId='size'>
-              <Form.Label>Size</Form.Label>
-              <Form.Control
-                as='select'
-                value={size}
-                placeholder='Select Size'
-                onChange={(e) => setSize(e.target.value)}
-              >
-                <option>XS</option>
-                <option>S</option>
-                <option>M</option>
-                <option>L</option>
-                <option>XL</option>
-              </Form.Control>
-            </Form.Group> */}
-
             <Form.Group controlId='gender'>
               <Form.Label>Gender</Form.Label>
               <Form.Control
