@@ -1,6 +1,6 @@
-import React from 'react';
-import { Container } from 'react-bootstrap';
-import Meta from '../components/Meta';
+import React from 'react'
+import { Container } from 'react-bootstrap'
+import Meta from '../components/Meta'
 const AboutScreen = () => {
   return (
     <div>
@@ -15,7 +15,7 @@ const AboutScreen = () => {
         <br />
         <br />
         Mazeraa’s logo is a crown because we believe in making everyone feel
-        like a king or queen. Our mission is to enable everyone to tap into the
+        like a King or Queen. Our mission is to enable everyone to tap into the
         fairy tale version of royalty because fashion is about so much more than
         the fabric on our bodies and Mazeraa has the power to transform.
         <br />
@@ -45,7 +45,7 @@ const AboutScreen = () => {
         women with plans to expand into accessories and clothing for kids.
       </Container>
     </div>
-  );
-};
+  )
+}
 
-export default AboutScreen;
+export default AboutScreen
