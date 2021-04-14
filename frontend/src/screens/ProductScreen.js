@@ -1,67 +1,59 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  Row,
-  Col,
-  Image,
-  ListGroup,
-  Card,
-  Button,
-  Form,
-} from "react-bootstrap";
-import Rating from "../components/Rating";
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { Row, Col, Image, ListGroup, Card, Button, Form } from 'react-bootstrap'
+import Rating from '../components/Rating'
 import {
   listProductDetails,
   createProductReview,
-} from "../actions/productActions";
-import { PRODUCT_CREATE_REVIEW_RESET } from "../constants/productConstants";
-import Loader from "../components/Loader";
-import Message from "../components/Message";
+} from '../actions/productActions'
+import { PRODUCT_CREATE_REVIEW_RESET } from '../constants/productConstants'
+import Loader from '../components/Loader'
+import Message from '../components/Message'
 
 const ProductScreen = ({ history, match }) => {
-  const [qty, setQty] = useState(1);
-  const [rating, setRating] = useState(0);
-  const [comment, setComment] = useState("");
-  const [size, setSize] = useState("");
+  const [qty, setQty] = useState(1)
+  const [rating, setRating] = useState(0)
+  const [comment, setComment] = useState('')
+  const [size, setSize] = useState('')
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
-  const productDetails = useSelector((state) => state.productDetails);
-  const { loading, error, product } = productDetails;
+  const productDetails = useSelector((state) => state.productDetails)
+  const { loading, error, product } = productDetails
 
-  const productCreateReview = useSelector((state) => state.productCreateReview);
+  const productCreateReview = useSelector((state) => state.productCreateReview)
   const {
     success: successProductReview,
     error: errorProductReview,
-  } = productCreateReview;
+  } = productCreateReview
 
   useEffect(() => {
     if (successProductReview) {
-      alert("Review submitted!");
-      setRating(0);
-      setComment("");
-      dispatch({ type: PRODUCT_CREATE_REVIEW_RESET });
+      alert('Review submitted!')
+      setRating(0)
+      setComment('')
+      dispatch({ type: PRODUCT_CREATE_REVIEW_RESET })
     }
-    dispatch(listProductDetails(match.params.id));
-  }, [dispatch, match, successProductReview]);
+    dispatch(listProductDetails(match.params.id))
+  }, [dispatch, match, successProductReview])
 
-  const userLogin = useSelector((state) => state.userLogin);
-  const { userInfo } = userLogin;
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
 
   const addToCartHandler = () => {
-    history.push(`/cart/${match.params.id}?size=${size}&qty=${qty}`);
-  };
+    history.push(`/cart/${match.params.id}?size=${size}&qty=${qty}`)
+  }
 
   const submitHandler = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     dispatch(
       createProductReview(match.params.id, {
         rating,
         comment,
       })
-    );
-  };
+    )
+  }
 
   return (
     <>
@@ -105,8 +97,8 @@ const ProductScreen = ({ history, match }) => {
                         <Col>Status:</Col>
                         <Col>
                           {product.countInStock > 0
-                            ? "In Stock"
-                            : "Out Of Stock"}
+                            ? 'In Stock'
+                            : 'Out Of Stock'}
                         </Col>
                       </Row>
                     </ListGroup.Item>
@@ -231,7 +223,7 @@ const ProductScreen = ({ history, match }) => {
                     </Form>
                   ) : (
                     <Message>
-                      Please <Link to='/login'>sign in</Link> to write a review{" "}
+                      Please <Link to='/login'>sign in</Link> to write a review{' '}
                     </Message>
                   )}
                 </ListGroup.Item>
@@ -241,7 +233,7 @@ const ProductScreen = ({ history, match }) => {
         </>
       )}
     </>
-  );
-};
+  )
+}
 
-export default ProductScreen;
+export default ProductScreen
