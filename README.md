@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-Mazeraa is a local clothing company to me that asked me to redesign and redevelope their site that was hosted on Wordpress.
+Mazeraa is a local clothing company that requested me to redesign and redevelope their site that was hosted on Wordpress.
 
 ## Technology Used
 
