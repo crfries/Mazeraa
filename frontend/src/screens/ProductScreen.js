@@ -137,11 +137,11 @@ const ProductScreen = ({ history, match }) => {
                               onChange={(e) => setSize(e.target.value)}
                             >
                               <option>Select</option>
-                              <option>XS</option>
                               <option>SM</option>
                               <option>MD</option>
                               <option>LG</option>
                               <option>XL</option>
+                              <option>2XL</option>
                             </Form.Control>
                           </Col>
                         </Row>
